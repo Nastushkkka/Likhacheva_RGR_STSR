@@ -1,0 +1,34 @@
+server:
+  port: 9090
+  error:
+    whitelabel:
+      enabled: false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/work_time_tracking
+    username: postgres
+    password: 50020111
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 50
+
+logging:
+  level:
+    org.springframework: INFO
+    org.hibernate.SQL: DEBUG
+
